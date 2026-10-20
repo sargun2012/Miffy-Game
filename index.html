@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f2f3f5">
+<title>The Miffy Challenge 🐰🥕</title>
+<style>
+:root{--bg:#f2f3f5;--card:rgba(255,255,255,.91);--ink:#35333b;--muted:#77747f;--pink:#d879a2;--pink-dark:#a64c78;--shadow:0 18px 55px rgba(58,48,66,.10)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);background:var(--bg);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;place-items:center;padding:28px 15px;overflow-x:hidden}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.page{position:relative;z-index:1;width:min(100%,700px)}
+.bunny-wrap{display:flex;justify-content:center;margin:0 auto 8px}
+.bunny{width:48px;height:62px;filter:drop-shadow(0 4px 4px rgba(70,55,70,.08))}
+.eyebrow{text-align:center;color:var(--pink-dark);text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:800;margin-bottom:10px}
+h1{text-align:center;font-size:clamp(2rem,6vw,3.25rem);line-height:1.05;margin:0 0 10px;letter-spacing:-.045em}
+.subtitle{text-align:center;color:var(--muted);margin:0 auto 22px;max-width:470px;line-height:1.6;font-size:.97rem}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.95);border-radius:25px;box-shadow:var(--shadow);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:clamp(19px,5vw,32px)}
+.card h2{margin:0 0 10px;font-size:1.16rem}.intro{margin:0;color:#625f69;line-height:1.7;font-size:.96rem}
+.participant-reward{margin:14px 0 16px;padding:12px 14px;border:1px solid #d8e8d6;border-radius:12px;background:#f3faf1;color:#285b35;text-align:center}.participant-reward strong{display:block;font-size:1.06rem}
+.prizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:21px 0}
+.prize{text-align:center;padding:13px 7px;border-radius:16px;background:#fbf5f8;border:1px solid #f2e4eb}
+.medal{font-size:1.5rem;display:block;margin-bottom:5px}.place{font-size:.76rem;color:var(--muted);font-weight:700}.amount{display:block;margin-top:4px;font-weight:850;color:var(--pink-dark);font-size:1.08rem}
+.deadline{border-radius:14px;padding:13px 14px;background:#f4f4f7;display:flex;align-items:center;gap:11px;line-height:1.45;margin:17px 0;font-size:.91rem}.deadline .icon{font-size:1.3rem}.deadline strong{display:block}
+.steps{margin:10px 0 0;padding-left:22px;color:#625f69;line-height:1.8}
+.username-note{margin-top:14px;padding:12px 14px;border-radius:14px;background:#fff8fb;border:1px solid #f4e1eb;font-size:.89rem;line-height:1.55;color:#65535d}
+.actions{margin-top:22px}.play{display:flex;justify-content:center;align-items:center;gap:9px;min-height:51px;width:100%;padding:13px 20px;text-align:center;text-decoration:none;border-radius:15px;color:white;background:linear-gradient(135deg,#df8ab0,#bf6793);box-shadow:0 9px 22px rgba(191,103,147,.24);font-weight:850;transition:transform .18s ease,box-shadow .18s ease}.play:hover{transform:translateY(-2px);box-shadow:0 13px 27px rgba(191,103,147,.3)}.play:focus-visible{outline:3px solid #8b4770;outline-offset:3px}
+footer{text-align:center;color:#8b8791;font-size:.78rem;margin-top:17px}
+@media(max-width:420px){.prizes{gap:5px}.prize{padding:11px 3px}.amount{font-size:.94rem}.place{font-size:.68rem}}
+@media(prefers-reduced-motion:reduce){.play{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<main class="page">
+  <div class="bunny-wrap" aria-label="Cute bunny illustration">
+    <svg class="bunny" viewBox="0 0 64 82" role="img" aria-label="Cute white bunny">
+      <ellipse cx="23" cy="19" rx="9" ry="18" fill="#fff" stroke="#e5dfe5" stroke-width="1.5" transform="rotate(-12 23 19)"/>
+      <ellipse cx="43" cy="18" rx="8" ry="19" fill="#fff" stroke="#e5dfe5" stroke-width="1.5" transform="rotate(9 43 18)"/>
+      <ellipse cx="23" cy="20" rx="4" ry="11" fill="#f3c6d8" transform="rotate(-12 23 20)"/>
+      <ellipse cx="43" cy="19" rx="3.5" ry="11" fill="#f3c6d8" transform="rotate(9 43 19)"/>
+      <circle cx="32" cy="48" r="25" fill="#fff" stroke="#e5dfe5" stroke-width="1.5"/>
+      <circle cx="23" cy="46" r="2.1" fill="#3d3941"/>
+      <circle cx="41" cy="46" r="2.1" fill="#3d3941"/>
+      <path d="M29 53 L35 53 L32 56 Z" fill="#d879a2"/>
+      <path d="M32 56 Q29 60 26 57 M32 56 Q35 60 38 57" fill="none" stroke="#3d3941" stroke-width="1.5" stroke-linecap="round"/>
+      <ellipse cx="17" cy="54" rx="4" ry="2.3" fill="#f6d9e5"/>
+      <ellipse cx="47" cy="54" rx="4" ry="2.3" fill="#f6d9e5"/>
+    </svg>
+  </div>
+  <div class="eyebrow">A little friendly competition</div>
+  <h1>The Miffy Challenge 🥕</h1>
+  <p class="subtitle">Play, collect carrots, climb the leaderboard, and win Cheers!</p>
+  <section class="card" aria-labelledby="challenge-title">
+    <h2 id="challenge-title">🌷 What is the challenge?</h2>
+    <p class="intro">The Miffy Challenge is on! Play <strong>Miffy Carrot Run</strong> and try to achieve the highest eligible score before the deadline. The three players with the highest scores will win Cheers.</p>
+    <p class="participant-reward"><strong>Every participant gets 25 Cheers!</strong> Everyone who takes part will receive 25 Cheers, in addition to the prizes for the top three.</p>
+    <div class="prizes" aria-label="Challenge prizes">
+      <div class="prize"><span class="medal">🥇</span><span class="place">1ST PLACE</span><span class="amount">200 Cheers</span></div>
+      <div class="prize"><span class="medal">🥈</span><span class="place">2ND PLACE</span><span class="amount">125 Cheers</span></div>
+      <div class="prize"><span class="medal">🥉</span><span class="place">3RD PLACE</span><span class="amount">67 Cheers</span></div>
+    </div>
+    <div class="deadline"><span class="icon">📅</span><div><strong>Challenge deadline</strong>31 October 2026 · 11:59 PM IST</div></div>
+    <h2>🎮 How to join</h2>
+    <ol class="steps">
+      <li>Tap the button below to open Miffy Carrot Run.</li>
+      <li>Enter your Chess.com username.</li>
+      <li>Play and collect as many carrots as you can.</li>
+      <li>Try to finish among the top three before the deadline.</li>
+    </ol>
+    <div class="username-note"><strong>👤 Username format:</strong> Type your Chess.com username <em>without</em> the @ symbol. The game adds it automatically. For example, <strong>MiffyBunny25</strong> appears as <strong>@MiffyBunny25</strong>.</div>
+    <div class="actions"><a class="play" href="https://sargun-miffygame.netlify.app/" target="_blank" rel="noopener noreferrer">🥕 Play Miffy Carrot Run ↗</a></div>
+  </section>
+  <footer>Play fair, have fun, and good luck! ♡</footer>
+</main>
+<script>
+(() => {
+  const canvas = document.getElementById('snow');
+  let ctx;
+  try { ctx = canvas.getContext('2d'); } catch (e) { return; }
+  if (!ctx) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let width = 0, height = 0, flakes = [], lastTime = 0, raf = 0;
+  const makeFlake = (randomY = true) => ({
+    x: Math.random() * width,
+    y: randomY ? Math.random() * height : -8 - Math.random() * 30,
+    r: 1 + Math.random() * 2.1,
+    speed: 22 + Math.random() * 28,
+    drift: (Math.random() - 0.5) * 13,
+    phase: Math.random() * Math.PI * 2,
+    alpha: 0.35 + Math.random() * 0.5
+  });
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(115, Math.max(55, Math.floor(width / 10)));
+    flakes = Array.from({ length: count }, () => makeFlake(true));
+    lastTime = 0;
+    if (raf) cancelAnimationFrame(raf);
+    draw(0);
+  }
+
+  function draw(time) {
+    const dt = lastTime ? Math.min((time - lastTime) / 1000, 0.04) : 0.016;
+    lastTime = time;
+    ctx.clearRect(0, 0, width, height);
+    for (const f of flakes) {
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,255,255,${f.alpha})`;
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(180,187,199,${f.alpha * 0.35})`;
+      ctx.arc(f.x + 0.5, f.y + 0.6, f.r * 0.7, 0, Math.PI * 2);
+      ctx.fill();
+      if (!reduceMotion) {
+        f.y += f.speed * dt;
+        f.x += (f.drift + Math.sin(time * 0.0007 + f.phase) * 9) * dt;
+        if (f.y > height + 8) Object.assign(f, makeFlake(false));
+        if (f.x > width + 8) f.x = -8;
+        if (f.x < -8) f.x = width + 8;
+      }
+    }
+    if (!reduceMotion) raf = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+})();
+</script>
+</body>
+</html>
